@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<ruleset name="CC Google Rating Badge" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+	<description>Standard kodowania WordPress dla kodu wtyczki (testy sa sprawdzane osobno, zob. phpcompat.xml.dist).</description>
+
+	<file>cc-google-rating-badge.php</file>
+	<file>uninstall.php</file>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+	<arg name="cache" value=".phpcs-cache"/>
+
+	<rule ref="WordPress">
+		<!--
+			WYJATKI TYMCZASOWE (dlug z pierwszego audytu narzedziami).
+			Kazdy wyjatek ma zgloszenie z etykieta audit:* w tym repozytorium; PR z poprawka
+			usuwa wyjatek razem z kodem, ktory go wymagal. Nie dodawaj nowych wyjatkow bez zgloszenia.
+			Wyjatki nie obejmuja zasad bezpieczenstwa poza trzema pozycjami nizej,
+			ktore sa pierwszymi znaleziskami audytu.
+		-->
+
+		<!-- Formatowanie: kod pisany ze spacjami i bez odstepow WPCS. Naprawa automatyczna (phpcbf) w osobnym PR. -->
+		<exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+		<exclude name="PEAR.Functions.FunctionCallSignature"/>
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
+		<exclude name="WordPress.WhiteSpace.OperatorSpacing"/>
+		<exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+		<exclude name="NormalizedArrays.Arrays.ArrayBraceSpacing"/>
+		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
+		<exclude name="Generic.Classes.OpeningBraceSameLine"/>
+		<exclude name="PSR2.Files.EndFileNewline"/>
+
+		<!-- Dokumentacja kodu: brak docblockow plikow, klasy i metod. -->
+		<exclude name="Squiz.Commenting.FileComment"/>
+		<exclude name="Squiz.Commenting.ClassComment"/>
+		<exclude name="Squiz.Commenting.FunctionComment"/>
+		<exclude name="Squiz.Commenting.VariableComment"/>
+
+		<!-- Styl warunkow: brak warunkow Yoda i krotki operator trojargumentowy. -->
+		<exclude name="WordPress.PHP.YodaConditions"/>
+		<exclude name="Universal.Operators.DisallowShortTernary"/>
+
+		<!-- Nazwa pliku glownego wtyczki nie ma prefiksu class- (konwencja dla wtyczek: nazwa katalogu). -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+
+		<!-- Bezpieczenstwo: pierwsze znaleziska audytu (odczyt flag ze zmiennej GET, sanityzacja pola liczbowego, wyjscie obrazu PNG). -->
+		<exclude name="WordPress.Security.NonceVerification.Recommended"/>
+		<exclude name="WordPress.Security.ValidatedSanitizedInput.InputNotSanitized"/>
+		<exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
+	</rule>
+</ruleset>

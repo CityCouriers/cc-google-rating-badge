@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="CC Google Rating Badge - zgodnosc z PHP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+	<description>PHPCompatibilityWP: kod wtyczki dziala od PHP 7.4 w gore; testy wymagaja PHP 8.0 (typy union i mixed).</description>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- Domyslnie kod wtyczki: minimum PHP 7.4 (zgodnie z "Requires PHP" w naglowku i composer.json). -->
+	<config name="testVersion" value="7.4-"/>
+
+	<file>cc-google-rating-badge.php</file>
+	<file>uninstall.php</file>
+</ruleset>

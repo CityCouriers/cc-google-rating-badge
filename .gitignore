@@ -1,0 +1,21 @@
+# Composer / Node
+/vendor/
+/node_modules/
+
+# Artefakty budowy wydania (scripts/build-zip.php)
+/dist/
+
+# Cache narzedzi
+.phpcs-cache
+.phpunit.result.cache
+.phpstan-cache/
+
+# Lokalne ustawienia narzedzi
+.claude/settings.local.json
+.claude/worktrees/
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db

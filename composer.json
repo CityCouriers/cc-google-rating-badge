@@ -1,0 +1,39 @@
+{
+  "name": "citycouriers/cc-google-rating-badge",
+  "description": "Lekka wtyczka WordPress pokazujaca agregat opinii Google (srednia ocena i liczba opinii).",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/CityCouriers/cc-google-rating-badge",
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "phpstan/phpstan": "^2.0",
+    "szepeviktor/phpstan-wordpress": "^2.0",
+    "wp-coding-standards/wpcs": "^3.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true,
+    "platform-check": false
+  },
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpstan": "phpstan analyse --memory-limit=512M",
+    "test": [
+      "php tests/cc-google-rating-badge-test.php",
+      "php tests/security-patterns-test.php",
+      "php tests/build-zip-test.php"
+    ],
+    "phpcompat": "phpcs --standard=phpcompat.xml.dist",
+    "security": [
+      "composer audit --locked",
+      "php scripts/security-patterns.php"
+    ],
+    "zip": "php scripts/build-zip.php"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "cc-google-rating-badge-repo-tools",
+  "version": "0.0.0-unversioned",
+  "description": "Narzedzia procesu repozytorium (bramka audytu zgloszen, etykiety). Sama wtyczka jest w PHP i nie uzywa Node.",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CityCouriers/cc-google-rating-badge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CityCouriers/cc-google-rating-badge/issues"
+  },
+  "homepage": "https://github.com/CityCouriers/cc-google-rating-badge#readme"
+}
